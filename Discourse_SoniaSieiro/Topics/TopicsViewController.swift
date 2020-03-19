@@ -75,7 +75,7 @@ class TopicsViewController: UIViewController {
             do {
                 let response = try JSONDecoder().decode(LatestTopicsResponse.self, from: data)
                 DispatchQueue.main.async {
-                    completion(.success(response.topic_list.topics))
+                    completion(.success(response.topicList.topics))
                 }
             } catch(let error) {
                 DispatchQueue.main.async {

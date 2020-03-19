@@ -10,47 +10,60 @@ import Foundation
 
 struct LatestTopicsResponse: Codable {
     let users: [Users]
-    let primary_goups: [Bool]?
-    let topic_list: TopicList
-//    enum CodingKeys: String, CodingKey {
-//        case canCreateCategory = "can_create_category"
-//        case canCreateTopic = "can_create_topic"
-//        case draft
-//        case draftKey = "draft_key"
-//        case draftSequence = "draft_sequence"
-//        case categories
-//    }
+    let primaryGroups: [Bool]?
+    let topicList: TopicList
+    enum CodingKeys: String, CodingKey {
+        case users
+        case primaryGroups = "primary_goups"
+        case topicList = "topic_list"
+    }
 }
 
 struct Users: Codable {
     let id: Int
     let username: String
     let name: String?
-    let avatar_template: String
+    let avatarTemplate: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case username
+        case name
+        case avatarTemplate = "avatar_template"
+    }
 }
 
 struct TopicList: Codable {
-    let can_create_topic: Bool?
+    let canCreateTopic: Bool?
     let draft: Bool?
-    let draft_key: String
-    let draft_sequence: Int?
-    let per_page: Int?
+    let draftKey: String
+    let draftSequence: Int?
+    let perPage: Int?
     let topics: [Topic]
+    
+    enum CodingKeys: String, CodingKey {
+        case canCreateTopic = "can_create_topic"
+        case draft
+        case draftKey = "draft_key"
+        case draftSequence = "draft_sequence"
+        case perPage = "per_page"
+        case topics
+    }
 }
 
 struct Topic: Codable {
     let id: Int
     let title: String
-    let fancy_title: String
+    let fancyTitle: String
     let slug: String
-    let post_count: Int?
-    let reply_count: Int?
-    let highest_post_number: Int?
-    let image_url: String?
-    let created_at: String
-    let last_posted_at: String
+    let postCount: Int?
+    let replyCount: Int?
+    let highestPostNumber: Int?
+    let imageUrl: String?
+    let createdAt: String
+    let lastPostedAt: String
     let bumped: Bool?
-    let bumped_at: String
+    let bumpedAt: String
     let unseen: Bool?
     let pinned: Bool?
     let unpinned: Bool?
@@ -60,17 +73,55 @@ struct Topic: Codable {
     let bookmarked: Bool?
     let liked: Bool?
     let views: Int?
-    let like_count: Int?
-    let has_summary: Bool?
+    let likeCount: Int?
+    let hasSummary: Bool?
     let archetype: String
-    let last_poster_username: String
-    let category_id: Int?
-    let pinned_globally: Bool?
+    let lastPosterUsername: String
+    let categoryId: Int?
+    let pinnedGlobally: Bool?
     let posters: [Poster]
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case fancyTitle = "fancy_title"
+        case slug
+        case postCount = "post_count"
+        case replyCount = "reply_count"
+        case highestPostNumber = "highest_post_number"
+        case imageUrl = "image_url"
+        case createdAt = "created_at"
+        case lastPostedAt = "last_posted_at"
+        case bumped
+        case bumpedAt = "bumped_at"
+        case unseen
+        case pinned
+        case unpinned
+        case visible
+        case closed
+        case archived
+        case bookmarked
+        case liked
+        case views
+        case likeCount = "like_count"
+        case hasSummary = "has_summary"
+        case archetype
+        case lastPosterUsername = "last_poster_username"
+        case categoryId = "category_id"
+        case pinnedGlobally = "pinned_globally"
+        case posters
+    }
 }
 
 struct Poster: Codable {
     let extras: String?
     let description: String
-    let user_id: Int?
+    let userId: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case extras
+        case description
+        case userId = "user_id"
+
+    }
 }
