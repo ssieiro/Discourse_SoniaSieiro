@@ -33,12 +33,12 @@ struct TopicList: Codable {
     let can_create_topic: Bool?
     let draft: Bool?
     let draft_key: String
-    let draft_sequence: Bool?
+    let draft_sequence: Int?
     let per_page: Int?
-    let topics: [TopicsArray]
+    let topics: [Topic]
 }
 
-struct TopicsArray: Codable {
+struct Topic: Codable {
     let id: Int
     let title: String
     let fancy_title: String
@@ -66,11 +66,11 @@ struct TopicsArray: Codable {
     let last_poster_username: String
     let category_id: Int?
     let pinned_globally: Bool?
-    let posters: [Posters]
+    let posters: [Poster]
 }
 
-struct Posters: Codable {
-    let extras: String
+struct Poster: Codable {
+    let extras: String?
     let description: String
     let user_id: Int?
 }

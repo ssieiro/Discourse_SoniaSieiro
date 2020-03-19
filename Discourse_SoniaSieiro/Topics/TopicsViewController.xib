@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopicsViewController" customModule="Discourse_SoniaSieiro" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="icv-Lj-1Ub" id="Wpf-g6-OwC"/>
                 <outlet property="view" destination="iN0-l3-epB" id="bZy-Qv-Ug8"/>
             </connections>
         </placeholder>
@@ -16,7 +17,19 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="icv-Lj-1Ub">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="icv-Lj-1Ub" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="FMw-zN-jRH"/>
+                <constraint firstItem="icv-Lj-1Ub" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ljf-CT-kYl"/>
+                <constraint firstItem="icv-Lj-1Ub" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="TPh-b7-Izo"/>
+                <constraint firstItem="icv-Lj-1Ub" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="ukk-G5-IZA"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="141.96428571428569"/>
         </view>
