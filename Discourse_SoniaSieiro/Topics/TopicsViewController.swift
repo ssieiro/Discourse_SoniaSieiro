@@ -23,6 +23,7 @@ class TopicsViewController: UIViewController {
         super.viewDidLoad()
 
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
         fetchLatestTopics { [weak self] (result) in
@@ -39,7 +40,7 @@ class TopicsViewController: UIViewController {
 
     func showErrorAlert(message: String) {
         let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
 
@@ -89,7 +90,12 @@ class TopicsViewController: UIViewController {
 
 }
 
-extension TopicsViewController: UITableViewDataSource {
+
+
+extension TopicsViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: - UITableViewDatasource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return latestTopics.count
     }
@@ -100,6 +106,22 @@ extension TopicsViewController: UITableViewDataSource {
         cell.textLabel?.textColor = UIColor.white
         cell.contentView.backgroundColor = UIColor.darkGray
         return cell
+    }
+    
+    
+    // MARK: UITableViewDelegate
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("Se ha hecho tap en la celda con al fila \(indexPath.row)")
+        let topic = latestTopics[indexPath.row]
+        let topicsDetailVC = TopicsDetailViewController.init(withId: topic.id)
+        self.navigationController?.pushViewController(topicsDetailVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
     }
 }
 
