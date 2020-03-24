@@ -18,6 +18,7 @@
 		F769D8992428CAB8001FCACF /* TopicsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F769D8982428CAB8001FCACF /* TopicsDetailViewController.swift */; };
 		F769D89B2428CAC3001FCACF /* TopicsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F769D89A2428CAC3001FCACF /* TopicsDetailViewController.xib */; };
 		F769D89D2428DC76001FCACF /* SingleTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F769D89C2428DC76001FCACF /* SingleTopic.swift */; };
+		F769D89F242A158D001FCACF /* Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = F769D89E242A158D001FCACF /* Delete.swift */; };
 		F7CEBF0324238FBB00377826 /* Topics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEBF0224238FBB00377826 /* Topics.swift */; };
 		F7FBFD4024210C4C007B8E4F /* TopicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7FBFD3F24210C4C007B8E4F /* TopicsViewController.xib */; };
 		F7FBFD4224210CD7007B8E4F /* UsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7FBFD4124210CD7007B8E4F /* UsersViewController.xib */; };
@@ -38,6 +39,7 @@
 		F769D8982428CAB8001FCACF /* TopicsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsDetailViewController.swift; sourceTree = "<group>"; };
 		F769D89A2428CAC3001FCACF /* TopicsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicsDetailViewController.xib; sourceTree = "<group>"; };
 		F769D89C2428DC76001FCACF /* SingleTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTopic.swift; sourceTree = "<group>"; };
+		F769D89E242A158D001FCACF /* Delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delete.swift; sourceTree = "<group>"; };
 		F7CEBF0224238FBB00377826 /* Topics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topics.swift; sourceTree = "<group>"; };
 		F7FBFD3F24210C4C007B8E4F /* TopicsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicsViewController.xib; sourceTree = "<group>"; };
 		F7FBFD4124210CD7007B8E4F /* UsersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersViewController.xib; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				F706CDED24223D5300941464 /* Categories.swift */,
 				F7CEBF0224238FBB00377826 /* Topics.swift */,
 				F769D89C2428DC76001FCACF /* SingleTopic.swift */,
+				F769D89E242A158D001FCACF /* Delete.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F769D89F242A158D001FCACF /* Delete.swift in Sources */,
 				F7CEBF0324238FBB00377826 /* Topics.swift in Sources */,
 				F710B7882420EC36009C7548 /* UsersViewController.swift in Sources */,
 				F710B7842420EC36009C7548 /* AppDelegate.swift in Sources */,

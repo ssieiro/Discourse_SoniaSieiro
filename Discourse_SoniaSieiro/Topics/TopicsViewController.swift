@@ -8,12 +8,16 @@
 
 import UIKit
 
+protocol TopicDetailViewControllerDelegate {
+    func reloadTable()
+}
+
 enum LatestTopicsError: Error {
     case malformedURL
     case emptyData
 }
 
-class TopicsViewController: UIViewController {
+class TopicsViewController: UIViewController, TopicDetailViewControllerDelegate {
     
     var latestTopics: [Topic] = []
 
@@ -88,8 +92,21 @@ class TopicsViewController: UIViewController {
         dataTask.resume()
     }
 
+    func reloadTable() {
+        fetchLatestTopics { [weak self] (result) in
+            switch result {
+            case .success(let latestTopics):
+                self?.latestTopics = latestTopics
+                self?.tableView.reloadData()
+            case .failure(let error):
+                print(error)
+                self?.showErrorAlert(message: error.localizedDescription)
+            }
+        }
+    }
+    
+    
 }
-
 
 
 extension TopicsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -116,10 +133,10 @@ extension TopicsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("Se ha hecho tap en la celda con al fila \(indexPath.row)")
         let topic = latestTopics[indexPath.row]
         let topicsDetailVC = TopicsDetailViewController.init(withId: topic.id)
-        self.navigationController?.pushViewController(topicsDetailVC, animated: true)
+        self.present(topicsDetailVC, animated: true, completion: nil)
+        topicsDetailVC.delegate = self
         tableView.deselectRow(at: indexPath, animated: true)
         
     }

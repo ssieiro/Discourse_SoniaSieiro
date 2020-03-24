@@ -17,6 +17,7 @@ class TopicsDetailViewController: UIViewController {
     
     var singleTopic: SingleTopicResponse?
     var id: Int?
+    var delegate: TopicDetailViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +88,7 @@ class TopicsDetailViewController: UIViewController {
 
             guard let data = data else {
                 DispatchQueue.main.async {
-                    completion(.failure(LatestTopicsError.emptyData))
+                    completion(.failure(SingleTopicError.emptyData))
                 }
                 return
             }
@@ -109,9 +110,49 @@ class TopicsDetailViewController: UIViewController {
     
     
     @IBAction func deleteTopic(_ sender: Any) {
+
+    if let id = id {
+        guard let updateStatusURL = URL(string: "https://mdiscourse.keepcoding.io/t/\(id).json") else { return }
+
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration)
+
+        var request = URLRequest(url: updateStatusURL)
+        request.httpMethod = "DELETE"
+        request.addValue("699667f923e65fac39b632b0d9b2db0d9ee40f9da15480ad5a4bcb3c1b095b7a", forHTTPHeaderField: "Api-Key")
+        request.addValue("ssieiro2", forHTTPHeaderField: "Api-Username")
+
+        let dataTask = session.dataTask(with: request) { (_, response, error) in
+
+            if let response = response as? HTTPURLResponse {
+                print(response.statusCode)
+                if response.statusCode != 200 {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.showAlert(title: "Error", message: "Error de red, status code: \(response.statusCode)")
+                    }
+                }
+            }
+
+            if let error = error {
+                DispatchQueue.main.async { [weak self] in
+                    self?.showAlert(title: "Error", message: error.localizedDescription)
+                }
+                return
+            }
+        }
+        dataTask.resume()
+        self.dismiss(animated: true, completion: nil)
         
     }
+    self.delegate?.reloadTable()
+    }
+
     
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
     
 }
     
