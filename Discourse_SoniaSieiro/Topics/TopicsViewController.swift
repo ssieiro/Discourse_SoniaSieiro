@@ -22,9 +22,11 @@ class TopicsViewController: UIViewController, TopicDetailViewControllerDelegate 
     var latestTopics: [Topic] = []
 
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var newTopicButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        newTopicButton.layer.cornerRadius = 4
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -106,6 +108,11 @@ class TopicsViewController: UIViewController, TopicDetailViewControllerDelegate 
     }
     
     
+    @IBAction func createNewTopic(_ sender: Any) {
+        let newTopicVC = NewTopicViewController()
+        self.present(newTopicVC, animated: true, completion: nil)
+        
+    }
 }
 
 
