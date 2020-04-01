@@ -26,6 +26,7 @@ class TopicsViewController: UIViewController, TopicViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         newTopicButton.layer.cornerRadius = 4
 
         tableView.dataSource = self
@@ -43,6 +44,8 @@ class TopicsViewController: UIViewController, TopicViewControllerDelegate {
             }
         }
     }
+
+    
 
     func showErrorAlert(message: String) {
         let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
@@ -113,7 +116,8 @@ class TopicsViewController: UIViewController, TopicViewControllerDelegate {
     @IBAction func createNewTopic(_ sender: Any) {
         let newTopicVC = NewTopicViewController()
         let navigationController = UINavigationController(rootViewController: newTopicVC)
-        newTopicVC.modalPresentationStyle = .fullScreen
+    
+        navigationController.modalPresentationStyle = .fullScreen
         newTopicVC.delegate = self
         self.present(navigationController, animated: true, completion: nil)
         
@@ -147,10 +151,11 @@ extension TopicsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let topic = latestTopics[indexPath.row]
         let topicsDetailVC = TopicsDetailViewController.init(withId: topic.id)
-        topicsDetailVC.modalPresentationStyle = .fullScreen
-        let navigationController = UINavigationController(rootViewController: topicsDetailVC)
-        self.present(navigationController, animated: true, completion: nil)
         topicsDetailVC.delegate = self
+        let navigationController = UINavigationController(rootViewController: topicsDetailVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
     }

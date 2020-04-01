@@ -22,15 +22,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let categoriesVC = CategoriesViewController.init(nibName: "CategoriesViewController", bundle: nil)
         let usersVC    = UsersViewController.init(nibName: "UsersViewController", bundle: nil)
         
+        let navTopicsVC = UINavigationController.init(rootViewController: topicsVC)
+        let navCategoriesVC = UINavigationController.init(rootViewController: categoriesVC)
+        let navUsersVC = UINavigationController.init(rootViewController: usersVC)
+
+        UINavigationBar.appearance().overrideUserInterfaceStyle = .dark
+        UINavigationBar.appearance().tintColor = UIColor.init(red: 235/255.0, green: 172/255.0, blue: 38/255.0, alpha: 1.0)
+        
+        
         topicsVC.tabBarItem  = UITabBarItem.init(title: "Topics", image: UIImage.init(systemName: "list.dash"), tag: 0)
         categoriesVC.tabBarItem   = UITabBarItem.init(title: "Categories", image: UIImage.init(systemName: "tag.fill"), tag: 1)
         usersVC.tabBarItem   = UITabBarItem.init(title: "Users", image: UIImage.init(systemName: "person.3.fill"), tag: 2)
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers  = [UINavigationController.init(rootViewController: topicsVC),
-                                             UINavigationController.init(rootViewController: categoriesVC),
-                                             UINavigationController.init(rootViewController: usersVC),
-        ]
+        tabBarController.viewControllers  = [navTopicsVC,navCategoriesVC,navUsersVC]
         
         
         tabBarController.tabBar.barStyle  = .black

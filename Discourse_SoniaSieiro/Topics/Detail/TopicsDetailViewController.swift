@@ -37,6 +37,7 @@ class TopicsDetailViewController: UIViewController {
         
     }
     
+    
     func setupUI() {
         topicTitle.text = singleTopic?.title
         topicId.text = "Id: \(singleTopic?.id ?? 0)"
