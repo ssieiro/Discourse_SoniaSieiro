@@ -50,7 +50,7 @@ class TopicsDetailViewController: UIViewController {
     convenience init(withId id: Int) {
         self.init(nibName: "TopicsDetailViewController", bundle: nil)
         self.id = id
-        self.title = "Detalle"
+        self.title = "Detail"
     }
     
     @IBOutlet weak var topicTitle: UILabel!

@@ -12,8 +12,10 @@ class NewTopicViewController: UIViewController {
     
     var delegate: TopicViewControllerDelegate?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Create"
         topicTitle.placeholder = "Introduzca título del topic"
     }
  

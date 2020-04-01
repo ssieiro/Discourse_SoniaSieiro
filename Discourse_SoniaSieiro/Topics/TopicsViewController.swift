@@ -112,9 +112,10 @@ class TopicsViewController: UIViewController, TopicViewControllerDelegate {
     
     @IBAction func createNewTopic(_ sender: Any) {
         let newTopicVC = NewTopicViewController()
+        let navigationController = UINavigationController(rootViewController: newTopicVC)
         newTopicVC.modalPresentationStyle = .fullScreen
         newTopicVC.delegate = self
-        self.present(newTopicVC, animated: true, completion: nil)
+        self.present(navigationController, animated: true, completion: nil)
         
     }
 }
@@ -147,7 +148,8 @@ extension TopicsViewController: UITableViewDataSource, UITableViewDelegate {
         let topic = latestTopics[indexPath.row]
         let topicsDetailVC = TopicsDetailViewController.init(withId: topic.id)
         topicsDetailVC.modalPresentationStyle = .fullScreen
-        self.present(topicsDetailVC, animated: true, completion: nil)
+        let navigationController = UINavigationController(rootViewController: topicsDetailVC)
+        self.present(navigationController, animated: true, completion: nil)
         topicsDetailVC.delegate = self
         tableView.deselectRow(at: indexPath, animated: true)
         
