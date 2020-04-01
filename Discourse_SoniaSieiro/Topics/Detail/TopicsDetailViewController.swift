@@ -17,7 +17,7 @@ class TopicsDetailViewController: UIViewController {
     
     var singleTopic: SingleTopicResponse?
     var id: Int?
-    var delegate: TopicDetailViewControllerDelegate?
+    var delegate: TopicViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,6 +126,9 @@ class TopicsDetailViewController: UIViewController {
 
             if let response = response as? HTTPURLResponse {
                 print(response.statusCode)
+                DispatchQueue.main.async { [weak self] in
+                    self?.delegate?.reloadTable()
+                }
                 if response.statusCode != 200 {
                     DispatchQueue.main.async { [weak self] in
                         self?.showAlert(title: "Error", message: "Error de red, status code: \(response.statusCode)")
@@ -144,9 +147,11 @@ class TopicsDetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         
     }
-    self.delegate?.reloadTable()
     }
 
+    @IBAction func closeTopic(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

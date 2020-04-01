@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewTopicViewController" customModule="Discourse_SoniaSieiro" customModuleProvider="target">
             <connections>
-                <outlet property="newtopiclabel" destination="qPe-aw-UHT" id="oZd-1C-fAF"/>
+                <outlet property="topicTitle" destination="uDQ-t9-3CI" id="9NW-Ls-lKX"/>
                 <outlet property="view" destination="iN0-l3-epB" id="9OE-Xn-gGd"/>
             </connections>
         </placeholder>
@@ -18,17 +18,51 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="newTopic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPe-aw-UHT">
-                    <rect key="frame" x="186" y="438" width="72" height="21"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uDQ-t9-3CI">
+                    <rect key="frame" x="40" y="132" width="334" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="334" id="mxO-Sz-mdg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhF-Pb-MdP">
+                    <rect key="frame" x="20" y="44" width="41" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="xmark.circle" catalog="system"/>
+                    <connections>
+                        <action selector="closeNewTopic:" destination="-1" eventType="touchUpInside" id="RZT-nz-RoT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swn-uQ-3Gb">
+                    <rect key="frame" x="141" y="721" width="138" height="60"/>
+                    <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="vvQ-Wg-YRz"/>
+                    </constraints>
+                    <state key="normal" title="Submit">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="submit:" destination="-1" eventType="touchUpInside" id="KSr-1N-eOu"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="uDQ-t9-3CI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="40K-Bv-Axw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="swn-uQ-3Gb" secondAttribute="trailing" constant="135" id="5ab-Hp-vHg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="swn-uQ-3Gb" secondAttribute="bottom" constant="81" id="BXi-uo-DI8"/>
+                <constraint firstItem="swn-uQ-3Gb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="141" id="GyQ-FN-jQT"/>
+                <constraint firstItem="uDQ-t9-3CI" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="88" id="gMY-fG-gUj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uDQ-t9-3CI" secondAttribute="trailing" constant="40" id="oZI-kj-7aj"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="139" y="139"/>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </view>
     </objects>
+    <resources>
+        <image name="xmark.circle" catalog="system" width="64" height="60"/>
+    </resources>
 </document>

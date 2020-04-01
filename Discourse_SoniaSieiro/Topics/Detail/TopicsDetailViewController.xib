@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fk4-s2-z8r">
-                    <rect key="frame" x="20" y="73" width="374" height="95"/>
+                    <rect key="frame" x="20" y="148" width="374" height="95"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="95" id="fMP-rd-Lcr"/>
                     </constraints>
@@ -31,7 +31,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqT-bG-SOd">
-                    <rect key="frame" x="20" y="176" width="374" height="95"/>
+                    <rect key="frame" x="20" y="251" width="374" height="95"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="95" id="Gtb-1a-2j4"/>
                     </constraints>
@@ -40,7 +40,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrP-fQ-cB3">
-                    <rect key="frame" x="20" y="313" width="374" height="95"/>
+                    <rect key="frame" x="20" y="388" width="374" height="95"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="95" id="YVI-5u-Jko"/>
                     </constraints>
@@ -62,6 +62,19 @@
                         <action selector="deleteTopic:" destination="-1" eventType="touchUpInside" id="f6g-VQ-toO"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXt-dH-3Dh">
+                    <rect key="frame" x="20" y="61" width="50" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="ZqW-ul-3dX"/>
+                        <constraint firstAttribute="height" constant="55" id="rdM-el-7e2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="xmark.circle" catalog="system"/>
+                    <connections>
+                        <action selector="closeTopic:" destination="-1" eventType="touchUpInside" id="11s-ff-c8a"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
             <constraints>
@@ -71,15 +84,20 @@
                 <constraint firstItem="GqT-bG-SOd" firstAttribute="top" secondItem="Fk4-s2-z8r" secondAttribute="bottom" constant="8" id="EGS-6S-qja"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Fk4-s2-z8r" secondAttribute="trailing" constant="20" id="IQc-CE-W32"/>
                 <constraint firstItem="Fk4-s2-z8r" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="KR5-6U-trm"/>
+                <constraint firstItem="fXt-dH-3Dh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="MSj-2l-7Ft"/>
                 <constraint firstItem="GqT-bG-SOd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Rhe-cz-GOh"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GqT-bG-SOd" secondAttribute="trailing" constant="20" id="Sk5-zI-zBc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="J5z-na-X8Y" secondAttribute="trailing" constant="130" id="Y9x-RG-uIq"/>
+                <constraint firstItem="fXt-dH-3Dh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="17" id="hO5-pe-PhJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="J5z-na-X8Y" secondAttribute="bottom" constant="45" id="iBk-Ni-y5S"/>
-                <constraint firstItem="Fk4-s2-z8r" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="29" id="kis-Da-XwB"/>
+                <constraint firstItem="Fk4-s2-z8r" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="104" id="kis-Da-XwB"/>
                 <constraint firstItem="qrP-fQ-cB3" firstAttribute="top" secondItem="GqT-bG-SOd" secondAttribute="bottom" constant="42" id="ywj-MD-5pn"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
         </view>
     </objects>
+    <resources>
+        <image name="xmark.circle" catalog="system" width="64" height="60"/>
+    </resources>
 </document>

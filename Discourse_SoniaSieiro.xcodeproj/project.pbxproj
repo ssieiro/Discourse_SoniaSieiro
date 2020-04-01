@@ -18,7 +18,6 @@
 		F769D8992428CAB8001FCACF /* TopicsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F769D8982428CAB8001FCACF /* TopicsDetailViewController.swift */; };
 		F769D89B2428CAC3001FCACF /* TopicsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F769D89A2428CAC3001FCACF /* TopicsDetailViewController.xib */; };
 		F769D89D2428DC76001FCACF /* SingleTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F769D89C2428DC76001FCACF /* SingleTopic.swift */; };
-		F769D89F242A158D001FCACF /* Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = F769D89E242A158D001FCACF /* Delete.swift */; };
 		F77B90AE242E269000B6B671 /* NewTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B90AD242E269000B6B671 /* NewTopicViewController.swift */; };
 		F77B90B0242E26A100B6B671 /* NewTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F77B90AF242E26A100B6B671 /* NewTopicViewController.xib */; };
 		F7CEBF0324238FBB00377826 /* Topics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEBF0224238FBB00377826 /* Topics.swift */; };
@@ -41,7 +40,6 @@
 		F769D8982428CAB8001FCACF /* TopicsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsDetailViewController.swift; sourceTree = "<group>"; };
 		F769D89A2428CAC3001FCACF /* TopicsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicsDetailViewController.xib; sourceTree = "<group>"; };
 		F769D89C2428DC76001FCACF /* SingleTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTopic.swift; sourceTree = "<group>"; };
-		F769D89E242A158D001FCACF /* Delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delete.swift; sourceTree = "<group>"; };
 		F77B90AD242E269000B6B671 /* NewTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTopicViewController.swift; sourceTree = "<group>"; };
 		F77B90AF242E26A100B6B671 /* NewTopicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTopicViewController.xib; sourceTree = "<group>"; };
 		F7CEBF0224238FBB00377826 /* Topics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topics.swift; sourceTree = "<group>"; };
@@ -67,7 +65,6 @@
 				F706CDED24223D5300941464 /* Categories.swift */,
 				F7CEBF0224238FBB00377826 /* Topics.swift */,
 				F769D89C2428DC76001FCACF /* SingleTopic.swift */,
-				F769D89E242A158D001FCACF /* Delete.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -226,7 +223,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F769D89F242A158D001FCACF /* Delete.swift in Sources */,
 				F7CEBF0324238FBB00377826 /* Topics.swift in Sources */,
 				F77B90AE242E269000B6B671 /* NewTopicViewController.swift in Sources */,
 				F710B7882420EC36009C7548 /* UsersViewController.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TopicDetailViewControllerDelegate {
+protocol TopicViewControllerDelegate {
     func reloadTable()
 }
 
@@ -17,7 +17,7 @@ enum LatestTopicsError: Error {
     case emptyData
 }
 
-class TopicsViewController: UIViewController, TopicDetailViewControllerDelegate {
+class TopicsViewController: UIViewController, TopicViewControllerDelegate {
     
     var latestTopics: [Topic] = []
 
@@ -95,11 +95,13 @@ class TopicsViewController: UIViewController, TopicDetailViewControllerDelegate 
     }
 
     func reloadTable() {
+        print("recargado")
         fetchLatestTopics { [weak self] (result) in
             switch result {
             case .success(let latestTopics):
                 self?.latestTopics = latestTopics
                 self?.tableView.reloadData()
+                print("reload data")
             case .failure(let error):
                 print(error)
                 self?.showErrorAlert(message: error.localizedDescription)
@@ -110,6 +112,8 @@ class TopicsViewController: UIViewController, TopicDetailViewControllerDelegate 
     
     @IBAction func createNewTopic(_ sender: Any) {
         let newTopicVC = NewTopicViewController()
+        newTopicVC.modalPresentationStyle = .fullScreen
+        newTopicVC.delegate = self
         self.present(newTopicVC, animated: true, completion: nil)
         
     }
@@ -142,6 +146,7 @@ extension TopicsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let topic = latestTopics[indexPath.row]
         let topicsDetailVC = TopicsDetailViewController.init(withId: topic.id)
+        topicsDetailVC.modalPresentationStyle = .fullScreen
         self.present(topicsDetailVC, animated: true, completion: nil)
         topicsDetailVC.delegate = self
         tableView.deselectRow(at: indexPath, animated: true)
