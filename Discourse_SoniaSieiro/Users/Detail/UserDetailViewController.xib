@@ -81,6 +81,9 @@
                     <state key="normal" title="Update name">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="updateName:" destination="-1" eventType="touchUpInside" id="MN7-0Q-oep"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>

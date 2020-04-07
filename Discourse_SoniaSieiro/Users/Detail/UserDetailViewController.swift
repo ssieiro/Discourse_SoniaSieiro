@@ -9,15 +9,14 @@
 import UIKit
 
 enum SingleUserError: Error {
-    case malformedURL
     case emptyData
+    case malformedURL
 }
 
 class UserDetailViewController: UIViewController {
     
     var singleUser: SingleUserResponse?
     var username: String?
-    var delegate: UserViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +30,7 @@ class UserDetailViewController: UIViewController {
             self?.setupUI()
         case .failure(let error):
             print(error)
-            self?.showErrorAlert(message: error.localizedDescription)
+            self?.showAlert(title: "Error", message: error.localizedDescription)
         }
     }
     }
@@ -45,7 +44,7 @@ class UserDetailViewController: UIViewController {
                 nameField.isHidden = false
                 name.isHidden = true
                 updateButton.isHidden = false
-                nameField.text = singleUser.user.username
+                nameField.text = singleUser.user.name
             }
         }
 
@@ -65,15 +64,10 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var updateButton: UIButton!
     
 
-    func showErrorAlert(message: String) {
-        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        present(alertController, animated: true, completion: nil)
-    }
-
     func fetchSingleUser(completion: @escaping (Result<SingleUserResponse, Error>) -> Void) {
         if let username = username {
             guard let singleUserURL = URL(string: "https://mdiscourse.keepcoding.io/users/\(username).json") else {
-                completion(.failure(LatestTopicsError.malformedURL))
+                completion(.failure(SingleUserError.malformedURL))
                 return
             }
             let configuration = URLSessionConfiguration.default
@@ -119,4 +113,58 @@ class UserDetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-}
+    @IBAction func updateName(_ sender: Any) {
+        guard let nameField = nameField.text, let username = username, let updateNameURL = URL(string: "https://mdiscourse.keepcoding.io/users/\(username)") else {return}
+
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration)
+
+        var request = URLRequest(url: updateNameURL)
+        request.httpMethod = "PUT"
+        request.addValue("699667f923e65fac39b632b0d9b2db0d9ee40f9da15480ad5a4bcb3c1b095b7a", forHTTPHeaderField: "Api-Key")
+        request.addValue("ssieiro2", forHTTPHeaderField: "Api-Username")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body: [String: Any] = [
+          "name": nameField
+        ]
+        guard let dataBody = try? JSONSerialization.data(withJSONObject: body) else { return }
+        request.httpBody = dataBody
+
+        let dataTask = session.dataTask(with: request) { (_, response, error) in
+            
+            if let response = response as? HTTPURLResponse {
+                print(response.statusCode)
+                if response.statusCode != 200 {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.showAlert(title: "Error", message: "Error de red, status code: \(response.statusCode)")
+                    }
+                } else {
+                    DispatchQueue.main.async { [weak self] in
+                    self?.showAlert(title: "Success", message: "Name changed")
+
+                    }
+                }
+            }
+
+            if let error = error {
+                DispatchQueue.main.async { [weak self] in
+                    self?.showAlert(title: "Error", message: error.localizedDescription)
+                }
+                return
+            }
+
+        }
+        dataTask.resume()
+
+        }
+    
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    }
+ 

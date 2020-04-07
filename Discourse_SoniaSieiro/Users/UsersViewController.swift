@@ -8,15 +8,12 @@
 
 import UIKit
 
-protocol UserViewControllerDelegate {
-    func reloadTable()
-}
 
 enum UsersError: Error {
     case empty
 }
 
-class UsersViewController: UIViewController, UserViewControllerDelegate {
+class UsersViewController: UIViewController {
 
     
 
@@ -66,9 +63,6 @@ class UsersViewController: UIViewController, UserViewControllerDelegate {
         task.resume()
     }
     
-    func reloadTable() {
-        return
-    }
 }
 
 extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
@@ -112,7 +106,6 @@ extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let singleUser = users[indexPath.row]
         let userDetailVC = UserDetailViewController.init(withUsername: singleUser.user.username)
-        userDetailVC.delegate = self
         let navigationController = UINavigationController(rootViewController: userDetailVC)
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
