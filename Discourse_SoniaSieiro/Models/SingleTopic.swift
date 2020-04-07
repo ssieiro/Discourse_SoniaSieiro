@@ -12,11 +12,14 @@ import Foundation
 struct SingleTopicResponse: Codable {
     let id: Int
     let title: String
-    let posts_count: Int
+    let postsCount: Int
     let details: Detail
-//    enum CodingKeys: String, CodingKey {
-//        case topicList = "topic_list"
-//    }
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case postsCount = "posts_count"
+        case details
+    }
 }
 
 

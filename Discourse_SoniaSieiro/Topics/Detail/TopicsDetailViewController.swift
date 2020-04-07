@@ -41,7 +41,7 @@ class TopicsDetailViewController: UIViewController {
     func setupUI() {
         topicTitle.text = singleTopic?.title
         topicId.text = "Id: \(singleTopic?.id ?? 0)"
-        postNumber.text = "Número de posts: \(singleTopic?.posts_count ?? 0)"
+        postNumber.text = "Número de posts: \(singleTopic?.postsCount ?? 0)"
         if singleTopic?.details.can_delete == true {
             self.deleteButton.isHidden = false
         }

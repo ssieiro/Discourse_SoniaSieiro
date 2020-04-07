@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol UserViewControllerDelegate {
+    func reloadTable()
+}
 
 enum UsersError: Error {
     case empty
 }
 
-class UsersViewController: UIViewController {
+class UsersViewController: UIViewController, UserViewControllerDelegate {
+
+    
 
     @IBOutlet weak var tableView: UITableView!
     var users: [Users] = []
@@ -22,6 +27,7 @@ class UsersViewController: UIViewController {
         super.viewDidLoad()
 
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
         fetch { [weak self] result in
@@ -59,12 +65,19 @@ class UsersViewController: UIViewController {
         
         task.resume()
     }
+    
+    func reloadTable() {
+        return
+    }
 }
 
-extension UsersViewController: UITableViewDataSource {
+extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
+
+    // MARK: - UITableViewDatasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -88,5 +101,23 @@ extension UsersViewController: UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    // MARK: UITableViewDelegate
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let singleUser = users[indexPath.row]
+        let userDetailVC = UserDetailViewController.init(withUsername: singleUser.user.username)
+        userDetailVC.delegate = self
+        let navigationController = UINavigationController(rootViewController: userDetailVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
     }
 }

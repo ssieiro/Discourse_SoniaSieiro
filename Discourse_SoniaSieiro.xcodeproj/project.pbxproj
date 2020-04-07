@@ -15,6 +15,9 @@
 		F710B7902420EC37009C7548 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F710B78E2420EC37009C7548 /* LaunchScreen.storyboard */; };
 		F710B79824210B1E009C7548 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F710B79724210B1E009C7548 /* CategoriesViewController.swift */; };
 		F710B79A24210B30009C7548 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F710B79924210B30009C7548 /* TopicsViewController.swift */; };
+		F74EA57B243C9C880006DB30 /* SingleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EA57A243C9C880006DB30 /* SingleUser.swift */; };
+		F74EA57E243C9E120006DB30 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EA57D243C9E120006DB30 /* UserDetailViewController.swift */; };
+		F74EA580243C9E1C0006DB30 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74EA57F243C9E1C0006DB30 /* UserDetailViewController.xib */; };
 		F769D8992428CAB8001FCACF /* TopicsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F769D8982428CAB8001FCACF /* TopicsDetailViewController.swift */; };
 		F769D89B2428CAC3001FCACF /* TopicsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F769D89A2428CAC3001FCACF /* TopicsDetailViewController.xib */; };
 		F769D89D2428DC76001FCACF /* SingleTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F769D89C2428DC76001FCACF /* SingleTopic.swift */; };
@@ -38,6 +41,9 @@
 		F710B7912420EC37009C7548 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F710B79724210B1E009C7548 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		F710B79924210B30009C7548 /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
+		F74EA57A243C9C880006DB30 /* SingleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleUser.swift; sourceTree = "<group>"; };
+		F74EA57D243C9E120006DB30 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		F74EA57F243C9E1C0006DB30 /* UserDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
 		F769D8982428CAB8001FCACF /* TopicsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsDetailViewController.swift; sourceTree = "<group>"; };
 		F769D89A2428CAC3001FCACF /* TopicsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicsDetailViewController.xib; sourceTree = "<group>"; };
 		F769D89C2428DC76001FCACF /* SingleTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTopic.swift; sourceTree = "<group>"; };
@@ -68,6 +74,7 @@
 				F7CEBF0224238FBB00377826 /* Topics.swift */,
 				F769D89C2428DC76001FCACF /* SingleTopic.swift */,
 				F77FD171243A301700B33A3D /* Users.swift */,
+				F74EA57A243C9C880006DB30 /* SingleUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,6 +116,7 @@
 			children = (
 				F710B7872420EC36009C7548 /* UsersViewController.swift */,
 				F7FBFD4124210CD7007B8E4F /* UsersViewController.xib */,
+				F74EA57C243C9DF90006DB30 /* Detail */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -131,6 +139,15 @@
 				F7FBFD4324210D24007B8E4F /* CategoriesViewController.xib */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		F74EA57C243C9DF90006DB30 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F74EA57D243C9E120006DB30 /* UserDetailViewController.swift */,
+				F74EA57F243C9E1C0006DB30 /* UserDetailViewController.xib */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		F769D8972428CA95001FCACF /* Detail */ = {
@@ -215,6 +232,7 @@
 				F769D89B2428CAC3001FCACF /* TopicsDetailViewController.xib in Resources */,
 				F77B90B0242E26A100B6B671 /* NewTopicViewController.xib in Resources */,
 				F710B78D2420EC37009C7548 /* Assets.xcassets in Resources */,
+				F74EA580243C9E1C0006DB30 /* UserDetailViewController.xib in Resources */,
 				F7FBFD4024210C4C007B8E4F /* TopicsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,12 +246,14 @@
 			files = (
 				F7CEBF0324238FBB00377826 /* Topics.swift in Sources */,
 				F77B90AE242E269000B6B671 /* NewTopicViewController.swift in Sources */,
+				F74EA57E243C9E120006DB30 /* UserDetailViewController.swift in Sources */,
 				F710B7882420EC36009C7548 /* UsersViewController.swift in Sources */,
 				F710B7842420EC36009C7548 /* AppDelegate.swift in Sources */,
 				F710B79824210B1E009C7548 /* CategoriesViewController.swift in Sources */,
 				F710B79A24210B30009C7548 /* TopicsViewController.swift in Sources */,
 				F769D89D2428DC76001FCACF /* SingleTopic.swift in Sources */,
 				F710B7862420EC36009C7548 /* SceneDelegate.swift in Sources */,
+				F74EA57B243C9C880006DB30 /* SingleUser.swift in Sources */,
 				F769D8992428CAB8001FCACF /* TopicsDetailViewController.swift in Sources */,
 				F706CDEE24223D5300941464 /* Categories.swift in Sources */,
 				F77FD172243A301700B33A3D /* Users.swift in Sources */,
