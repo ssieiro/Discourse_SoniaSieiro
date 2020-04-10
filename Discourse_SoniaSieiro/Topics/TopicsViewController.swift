@@ -28,7 +28,6 @@ class TopicsViewController: UIViewController, TopicViewControllerDelegate {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         newTopicButton.layer.cornerRadius = 4
-
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -37,7 +36,10 @@ class TopicsViewController: UIViewController, TopicViewControllerDelegate {
             switch result {
             case .success(let latestTopics):
                 self?.latestTopics = latestTopics
-                self?.tableView.reloadData()
+                DispatchQueue.main.async {
+                   self?.tableView.reloadData()
+                }
+                
             case .failure(let error):
                 print(error)
                 self?.showErrorAlert(message: error.localizedDescription)

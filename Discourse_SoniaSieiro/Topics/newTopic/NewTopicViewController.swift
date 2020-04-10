@@ -89,7 +89,6 @@ class NewTopicViewController: UIViewController {
         dataTask.resume()
         
     }
-//probar si me deja publicar un post cuando pase el 429 y si vuelve bien, error ok
     
     }
     

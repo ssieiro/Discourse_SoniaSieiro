@@ -27,7 +27,9 @@ class TopicsDetailViewController: UIViewController {
         switch result {
         case .success(let singleTopic):
             self?.singleTopic = singleTopic
-            self?.setupUI()
+            DispatchQueue.main.async {
+                self?.setupUI()
+            }
         case .failure(let error):
             print(error)
             self?.showErrorAlert(message: error.localizedDescription)
@@ -62,6 +64,7 @@ class TopicsDetailViewController: UIViewController {
     
     func showErrorAlert(message: String) {
         let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
 
