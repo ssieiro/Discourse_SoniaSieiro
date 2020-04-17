@@ -32,6 +32,10 @@ class TopicsViewController: UIViewController, TopicViewControllerDelegate {
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
+        /*
+         Los closures que llamas dentro de fetchLatestTopics ya los estás haciendo dentro de la main queue (con main.async)
+         Por tanto no hace falta hacer el reloadData dentro de otro main.async. No está mal, pero sobra. 😉
+         */
         fetchLatestTopics { [weak self] (result) in
             switch result {
             case .success(let latestTopics):

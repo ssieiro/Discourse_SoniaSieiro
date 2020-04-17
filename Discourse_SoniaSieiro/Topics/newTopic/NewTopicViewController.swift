@@ -9,7 +9,10 @@
 import UIKit
 
 class NewTopicViewController: UIViewController {
-    
+
+    /*
+     Los delegate siempre, SIEMPRE como weak var.
+     */
     var delegate: TopicViewControllerDelegate?
     
     

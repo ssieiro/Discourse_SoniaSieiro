@@ -22,7 +22,9 @@ struct SingleTopicResponse: Codable {
     }
 }
 
-
+/*
+ Mecachis, se te ha colado esta propiedad en snake_case
+ */
 struct Detail: Codable {
     let can_delete: Bool?
 }
